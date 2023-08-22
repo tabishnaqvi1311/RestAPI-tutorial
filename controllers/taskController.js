@@ -33,7 +33,7 @@ const updateTask = (req, res) => {
     const {id} = req.params;
     const {task, completed} = req.body;
 
-    if(!task) return res.json(400).json("Enter a task first!");
+    if(!task && !completed) return res.status(400).json("Headers cannot be empty");
 
     const values = [task, completed, id];
 
